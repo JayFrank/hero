@@ -4,5 +4,4 @@ package user;
 public interface AttackStrategy {
     // 计算攻击值
     public Integer calculateAttack(Hero hero);
-
 }

@@ -110,10 +110,19 @@ public class Hero {
         return true;
     }
 
-    // 计算英雄一次成功攻击的伤害，使用策略模式？
-    private Integer attack() {
-
-        return 0;
+    // 计算英雄一次成功攻击的伤害，使用策略模式
+    private Integer attack(Integer choice) {
+        AttackStrategy attack = null;
+        switch (choice) {
+            case 0:
+                attack = new NormalAttack();
+            case 1:
+                attack = new RubyAttack();
+            case 2:
+                attack = new SapphireAttack();
+        }
+        Integer damage = attack.calculateAttack(this);
+        return damage;
     }
 
 }

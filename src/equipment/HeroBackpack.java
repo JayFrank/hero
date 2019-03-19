@@ -45,6 +45,25 @@ public class HeroBackpack {
         }
     }
 
+    // 获取背包格式化描述
+    public String getbackpackDesc() {
+        String backpackStr = "红宝石: ";
+        if(this.isHasRuby()) {
+            backpackStr += "Yes";
+        } else {
+            backpackStr += "No";
+        }
+        backpackStr += "\n" + "蓝宝石: ";
+        if(this.isHasSapphire()) {
+            backpackStr += "Yes";
+        } else {
+            backpackStr += "No";
+        }
+        backpackStr += "\n" + "城堡钥匙数量: " + this.getKeyNumber();
+        backpackStr += "\n" + "智慧果实数量: " + this.getAppleNumber();
+        return backpackStr;
+    }
+
     public Integer getKeyNumber() {
         return keyNumber;
     }

@@ -5,6 +5,9 @@ import equipment.Weapon;
 
 public class Hero {
 
+    // 英雄名字
+    private String name;
+
     // 英雄导师
     private Hero tutor = null;
 
@@ -27,7 +30,7 @@ public class Hero {
     private Integer level = 0;
 
     // 背包
-    private HeroBackpack backpack;
+    private HeroBackpack backpack = new HeroBackpack();
 
     // 武器
     private Weapon weapon = null;
@@ -104,6 +107,14 @@ public class Hero {
         this.backpack = backpack;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private boolean becomeTutor() {
         this.isTutor = true;
         // 属性能力提升
@@ -125,4 +136,26 @@ public class Hero {
         return damage;
     }
 
+    // hero的信息输出给UI类字符串
+    public String getHeroDesc () {
+        String title = "";
+        if(this.isTutor()) {
+            title = "英雄导师: ";
+        } else {
+            title = "英雄: ";
+        }
+        String name = this.getName();
+        if(name == null) {
+            name = "Frank";
+        }
+        String attack = String.valueOf(this.getAttack());
+        String health = String.valueOf(this.getHealth());
+        String mentalValue = String.valueOf(this.getMentalValue());
+        String experience = String.valueOf(this.getExperience());
+        String level = String.valueOf(this.getLevel());
+
+        String heroStr = title + name + "    " + "攻击力: " + attack + "    " + "生命值: " + health + "    ";
+        heroStr += "智力值: " + mentalValue + "    " + "经验值: " + experience + "    " + "等级: " + level;
+        return heroStr;
+    }
 }

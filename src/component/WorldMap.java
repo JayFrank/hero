@@ -12,7 +12,7 @@ public class WorldMap {
                 matrix[i][j] = '#';
             }
         }
-        matrix[length - 1][width / 2] = '@';
+        matrix[length - 1][width / 2] = '^';
     }
 
     public void printMatrix() {

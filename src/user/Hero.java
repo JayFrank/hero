@@ -134,7 +134,7 @@ public class Hero {
     }
 
     // 计算英雄一次成功攻击的伤害，使用策略模式
-    private Integer attack(Integer choice) {
+    public Integer attack(Integer choice) {
         AttackStrategy attack = null;
         switch (choice) {
             case 0:
@@ -146,6 +146,32 @@ public class Hero {
         }
         Integer damage = attack.calculateAttack(this);
         return damage;
+    }
+
+    // 英雄使用智慧苹果，增加智慧值
+    public boolean eatApple() {
+        Integer appleNum = this.getBackpack().getAppleNumber();
+        Integer mentalValue = this.getMentalValue();
+        if((appleNum > 0) && (mentalValue < 1000)) {
+            // 这里需要放一个上限
+            this.getBackpack().setAppleNumber(appleNum - 1);
+            this.setMentalValue(mentalValue + 5);
+            return true;
+        }
+        return false;
+    }
+
+    // 英雄使用消耗智力值，进行侦测
+    public String detectAttack() {
+        String res = "智力值不足，无法侦测敌方攻击方式!";
+        Integer mentalCost = 10;
+        Integer mentalValue = this.getMentalValue();
+        if (mentalValue - mentalCost >= 0) {
+            // 智慧值足够，可以进行侦测
+            res = "";
+            // 这里需要和钟陈星商量
+        }
+        return res;
     }
 
     // hero的信息输出给UI类字符串

@@ -5,6 +5,7 @@ import equipment.Weapon;
 import user.Hero;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 public class HeroUI {
     public static void main(String[] agrs)
@@ -29,15 +30,39 @@ public class HeroUI {
         mapTextArea.setEditable(false);
 
         JPanel mapPanel = new JPanel();
-        mapPanel.setName("你的世界地图");
+        Border mapTitle = BorderFactory.createTitledBorder("你的世界地图");
+        mapTextArea.setBorder(mapTitle);
         mapPanel.setLayout(new BorderLayout());
         mapPanel.add(mapTextArea, BorderLayout.NORTH);
+
+        JPanel movePanel = new JPanel();
+        Border moveTitle = BorderFactory.createTitledBorder("方向移动");
+        movePanel.setBorder(moveTitle);
+        movePanel.setLayout(new GridLayout(2, 3));
+        JButton emptyBt1 = new JButton("");
+        JButton emptyBt2 = new JButton("");
+        JButton wbt = new JButton("↑");
+        JButton abt = new JButton("←");
+        JButton sbt = new JButton("↓");
+        JButton dbt = new JButton("→");
+
+        movePanel.add(emptyBt1);
+        movePanel.add(wbt);
+        movePanel.add(emptyBt2);
+        movePanel.add(abt);
+        movePanel.add(sbt);
+        movePanel.add(dbt);
+
+        mapPanel.add(movePanel, BorderLayout.SOUTH);
 
         // 英雄信息展示
         Hero hero = new Hero();
 
         JPanel heroInfoPanel = new JPanel();
         heroInfoPanel.setLayout(new BorderLayout());
+
+        Border heroTitle = BorderFactory.createTitledBorder("英雄信息");
+        heroInfoPanel.setBorder(heroTitle);
 
         JTextArea heroInfoArea = new JTextArea(hero.getHeroDesc());
         heroInfoArea.setEditable(false);
@@ -59,10 +84,54 @@ public class HeroUI {
         otherInfoPanel.setLayout(new BorderLayout());
 
         JTextArea weaponArea = new JTextArea(weaponDesc);
+        weaponArea.setEditable(false);
+        Border weaponTitle = BorderFactory.createTitledBorder("武器装备");
+        weaponArea.setBorder(weaponTitle);
+
         JTextArea backpackArea = new JTextArea(backpackDesc);
+        backpackArea.setEditable(false);
+
+        Border backTitle = BorderFactory.createTitledBorder("你的背包");
+        backpackArea.setBorder(backTitle);
 
         otherInfoPanel.add(weaponArea, BorderLayout.NORTH);
         otherInfoPanel.add(backpackArea, BorderLayout.SOUTH);
+
+
+        // 功能按键
+        // 三种攻击方式
+        JButton attack1 = new JButton("冲撞攻击");
+        JButton attack2 = new JButton("侧身攻击");
+        JButton attack3 = new JButton("跳跃攻击");
+
+        // 抵近侦察，需要消耗一定的智力值
+        JButton detectBT = new JButton("抵近侦察");
+
+        // 使用智慧果实
+        JButton eatBT = new JButton("使用智慧果");
+
+        // 合成武器
+        JButton synthesisBT = new JButton("合成武器");
+
+        // 逃跑
+        JButton escapeBT = new JButton("逃离战斗");
+
+        // 使用宝石
+        JButton useRubyBT = new JButton("红宝石技能");
+        JButton useSapphireBT = new JButton("蓝宝石技能");
+
+        JPanel btPanel = new JPanel();
+        btPanel.setLayout(new GridLayout(2, 5));
+        btPanel.add(attack1);
+        btPanel.add(attack2);
+        btPanel.add(attack3);
+        btPanel.add(useRubyBT);
+        btPanel.add(useSapphireBT);
+        btPanel.add(detectBT);
+        btPanel.add(eatBT);
+        btPanel.add(synthesisBT);
+        btPanel.add(escapeBT);
+
 
         JButton button1=new JButton ("上");
         JButton button3=new JButton("中");
@@ -71,13 +140,13 @@ public class HeroUI {
 
 
         frame.add(heroInfoPanel,BorderLayout.NORTH);
-        frame.add(mapTextArea,BorderLayout.WEST);
+        frame.add(mapPanel, BorderLayout.WEST);
 
         frame.add(button3,BorderLayout.CENTER);
         frame.add(otherInfoPanel,BorderLayout.EAST);
-        frame.add(button5,BorderLayout.SOUTH);
+        frame.add(btPanel,BorderLayout.SOUTH);
 
-        frame.setBounds(300,200,600,300);
+        frame.setBounds(300,200,600,400);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

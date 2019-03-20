@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af0bc971-f281-42a4-a63c-3e8fa34286f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/attribute/DragonAttribute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dragon/DragonFlyweight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dragon/DragonFlyweightFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dragon/MagicDragonFlyweight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dragon/NormalDragonFlyweight.java" afterDir="false" />
-    </list>
+    <list default="true" id="af0bc971-f281-42a4-a63c-3e8fa34286f5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +13,7 @@
     <session id="136769264">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.opened" value="2" />
@@ -201,7 +196,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552991643084" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552991644937" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -227,16 +222,15 @@
       <option name="presentableId" value="Default" />
       <updated>1552976503688</updated>
       <workItem from="1552976504975" duration="7580000" />
-      <workItem from="1552990313586" duration="1328000" />
+      <workItem from="1552990313586" duration="1414000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8908000" />
+    <option name="totallyTimeSpent" value="8994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1087" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />

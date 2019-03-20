@@ -1,9 +1,16 @@
 package component;
 
 public class WorldMap {
-    private Integer length = 8;
-    private Integer width = 9;
+    private Integer length = 10;
+    private Integer width = 11;
     private char[][] matrix;
+
+    // 英雄坐标，初始时位于最底层的中间位置
+    private Integer heroX = length - 1;
+    private Integer heroY = width / 2;
+    private char curPos = 'H';
+    private char markTag = '^';
+    private char monster = 'X';
 
     public WorldMap() {
         matrix = new char[length][width];
@@ -12,7 +19,66 @@ public class WorldMap {
                 matrix[i][j] = '#';
             }
         }
-        matrix[length - 1][width / 2] = '@';
+        matrix[heroX][heroY] = this.curPos;
+    }
+
+    public void resetWorldMap() {
+        matrix = new char[length][width];
+        for (int i = 0; i < length; i++) {
+            for (int j =0; j < width; j++) {
+                matrix[i][j] = '#';
+            }
+        }
+        matrix[heroX][heroY] = this.monster;
+    }
+
+    public String move(char direction) {
+        String result = "无法实现此次移动，英雄停留在原地!";
+        switch (direction) {
+            case 'W':
+                this.markTrace(-1, 0);
+                result = "英雄向上移动啦！";
+                break;
+            case 'A':
+                this.markTrace(0, -1);
+                result = "英雄向左移动啦！";
+                break;
+            case 'S':
+                this.markTrace(1, 0);
+                result = "英雄向后移动啦！";
+                break;
+            case 'D':
+                this.markTrace(0, 1);
+                result = "英雄向右移动啦！";
+                break;
+        }
+        return result;
+    }
+
+    public void markTrace(Integer moveX, Integer moveY) {
+        Integer x = this.getHeroX();
+        Integer y = this.getHeroY();
+
+        Integer newX = x + moveX;
+        Integer newY = y + moveY;
+        // 验证
+        if((newX) >= 0 && (newX) < this.getLength() && (newY) >= 0 && (newY) < this.getWidth()) {
+            this.matrix[x][y] = this.markTag;
+            this.matrix[newX][y + moveY] = this.curPos;
+            this.setHeroX(newX);
+            this.setHeroY(newY);
+            // printMatrix();
+        }
+
+    }
+
+    // 判断怪兽能否在地图上的该处出现
+    public boolean canMonsterAppear(Integer x, Integer y) {
+        boolean res = true;
+        if(this.getMatrix()[x][y] != '#') {
+            res = false;
+        }
+        return res;
     }
 
     public void printMatrix() {
@@ -23,6 +89,22 @@ public class WorldMap {
             }
             System.out.println();
         }
+    }
+
+    public Integer getHeroX() {
+        return heroX;
+    }
+
+    public void setHeroX(Integer heroX) {
+        this.heroX = heroX;
+    }
+
+    public Integer getHeroY() {
+        return heroY;
+    }
+
+    public void setHeroY(Integer heroY) {
+        this.heroY = heroY;
     }
 
     public Integer getLength() {

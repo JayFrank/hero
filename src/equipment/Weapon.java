@@ -41,6 +41,17 @@ public abstract class Weapon {
         return true;
     }
 
+    // 格式化输出武器信息
+    public String getWeaponDesc() {
+        String weaponStr;
+        weaponStr = "武器名称: " + name + "\n" + "等级: " + level + "\n" + "攻击加成: " + attackBouns + "\n";
+        if (this.isCanSynthesize()) {
+            weaponStr += "可以合成";
+        } else {
+            weaponStr += "不可合成";
+        }
+        return weaponStr;
+    }
 
     public String getName() {
         return name;

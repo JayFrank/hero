@@ -7,17 +7,12 @@ import user.Hero;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class HeroUI {
-    public static void main(String[] agrs)
-    {
-        JFrame frame=new JFrame("Hero");
-        frame.setSize(400,200);
-        frame.setLayout(new BorderLayout());
 
-        // 游戏地图显示
-        WorldMap worldMap = new WorldMap();
-        char[][] matrix = worldMap.getMatrix();
-
+    public static String getMapText(char[][] matrix) {
         String mapText = "";
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
@@ -25,6 +20,21 @@ public class HeroUI {
             }
             mapText += "\n";
         }
+        return mapText;
+    }
+
+    public static void main(String[] agrs)
+    {
+        JFrame frame=new JFrame("Hero");
+        frame.setSize(400,200);
+        frame.setLayout(new BorderLayout());
+
+        Hero hero = new Hero();
+        WorldMap worldMap = hero.getWorldMap();
+
+        // 游戏地图显示
+        char[][] matrix = worldMap.getMatrix();
+        String mapText = getMapText(matrix);
 
         JTextArea mapTextArea = new JTextArea(mapText);
         mapTextArea.setEditable(false);
@@ -39,12 +49,67 @@ public class HeroUI {
         Border moveTitle = BorderFactory.createTitledBorder("方向移动");
         movePanel.setBorder(moveTitle);
         movePanel.setLayout(new GridLayout(2, 3));
-        JButton emptyBt1 = new JButton("");
+        JButton emptyBt1 = new JButton("Monster");
+        // emptyBt1.setEnabled(false);
         JButton emptyBt2 = new JButton("");
+        emptyBt2.setEnabled(false);
         JButton wbt = new JButton("↑");
         JButton abt = new JButton("←");
         JButton sbt = new JButton("↓");
         JButton dbt = new JButton("→");
+
+        // 模拟遇到了怪兽，最终要删除
+        emptyBt1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                worldMap.resetWorldMap();
+                String newText = getMapText(worldMap.getMatrix());
+                mapTextArea.setText(newText);
+                mapTextArea.revalidate();
+            }
+        });
+
+        wbt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                worldMap.move('W');
+                String newText = getMapText(worldMap.getMatrix());
+                mapTextArea.setText(newText);
+                mapTextArea.revalidate();
+            }
+        });
+
+        abt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                worldMap.move('A');
+                String newText = getMapText(worldMap.getMatrix());
+                mapTextArea.setText(newText);
+                mapTextArea.revalidate();
+            }
+        });
+
+        sbt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                worldMap.move('S');
+                String newText = getMapText(worldMap.getMatrix());
+                mapTextArea.setText(newText);
+                mapTextArea.revalidate();
+            }
+        });
+
+        dbt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                worldMap.move('D');
+                String newText = getMapText(worldMap.getMatrix());
+                mapTextArea.setText(newText);
+                mapTextArea.revalidate();
+            }
+        });
+
+
 
         movePanel.add(emptyBt1);
         movePanel.add(wbt);
@@ -56,7 +121,7 @@ public class HeroUI {
         mapPanel.add(movePanel, BorderLayout.SOUTH);
 
         // 英雄信息展示
-        Hero hero = new Hero();
+
 
         JPanel heroInfoPanel = new JPanel();
         heroInfoPanel.setLayout(new BorderLayout());
@@ -146,7 +211,7 @@ public class HeroUI {
         frame.add(otherInfoPanel,BorderLayout.EAST);
         frame.add(btPanel,BorderLayout.SOUTH);
 
-        frame.setBounds(300,200,600,400);
+        frame.setBounds(300,200,600,420);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

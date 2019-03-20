@@ -1,5 +1,6 @@
 package user;
 
+import component.WorldMap;
 import equipment.HeroBackpack;
 import equipment.Weapon;
 
@@ -34,6 +35,17 @@ public class Hero {
 
     // 武器
     private Weapon weapon = null;
+
+    // 英雄的地图
+    private WorldMap worldMap = new WorldMap();
+
+    public WorldMap getWorldMap() {
+        return worldMap;
+    }
+
+    public void setWorldMap(WorldMap worldMap) {
+        this.worldMap = worldMap;
+    }
 
     public Weapon getWeapon() {
         return weapon;

@@ -91,6 +91,22 @@ public class WorldMap {
         }
     }
 
+    /**
+     * 由WorldMap即时生成地图
+     *
+     * @return
+     */
+    public String getMapText() {
+        String mapText = "";
+        for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix[0].length; j++) {
+                mapText += this.matrix[i][j] + "  ";
+            }
+            mapText += "\n";
+        }
+        return mapText;
+    }
+
     public Integer getHeroX() {
         return heroX;
     }

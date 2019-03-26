@@ -101,6 +101,7 @@ public class DirectionButtonController {
                 updateInfoPanel(false);
                 // 进入普通战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
                 War war1 = new War(hero, "normal");
+
                 break;
 
             case 2:

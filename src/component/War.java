@@ -9,6 +9,7 @@ public class War {
     private Hero hero = null;
     private DragonFlyweightFactory factory = new DragonFlyweightFactory();
     private DragonFlyweight dragon = null;
+    private Battle battle = null;
 
     public War(Hero hero, String type) {
         // 策略模式
@@ -35,6 +36,8 @@ public class War {
         }
         dragon = factory.getDragonFlyweight(key);
     }
+
+
 
     // 创建大魔王龙
     public void createMagicDragon() {

@@ -58,7 +58,7 @@ public class HeroUI {
         frame.add(this.otherInfoUI.getOtherInfoPanel(), BorderLayout.EAST);
         frame.add(this.operationPanel.getBtPanel(), BorderLayout.SOUTH);
 
-        frame.setBounds(300, 200, 600, 420);
+        frame.setBounds(300, 200, 800, 420);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

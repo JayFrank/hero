@@ -2,8 +2,10 @@ package component;
 
 import ui.InfoBoard;
 import ui.MapPanel;
+import user.Hero;
 
 import javax.swing.*;
+
 
 public class DirectionButtonController {
     // 持有地图显示面板引用以更新地图
@@ -16,6 +18,9 @@ public class DirectionButtonController {
     private Scenery scenery;
     // 战斗按钮控制器
     private BattleButtonController battleButtonController;
+
+    // 存放Hero的引用
+    private Hero hero = null;
 
     public DirectionButtonController(MapPanel mapPanel,
                                      WorldMap worldMap,
@@ -32,10 +37,18 @@ public class DirectionButtonController {
     /**
      * 向按钮对象组传入自身，绑定按钮响应事件
      */
+    public DirectionButtonController(MapPanel mapPanel,
+                                     WorldMap worldMap,
+                                     InfoBoard infoBoard,
+                                     Hero hero
+    ){
+        this(mapPanel, worldMap, infoBoard);
+        this.hero = hero;
+    }
+
     private void activeController(){
         this.mapPanel.activeButtonPanel(this);
     }
-
 
     /**
      * 更新地图
@@ -45,7 +58,6 @@ public class DirectionButtonController {
         worldMap.move(direction);
         String newText = worldMap.getMapText();
         mapPanel.setMapText(newText);
-
     }
 
     /**
@@ -65,6 +77,7 @@ public class DirectionButtonController {
      *      2 ---  进入终极战斗模式
      */
     private Integer getNextState(){
+        // 待实现下一状态生成算法
         Integer num = (int) ( Math.random() * 100);
         // System.out.println("num"+ num);
         Integer stateCode = 0;
@@ -93,12 +106,17 @@ public class DirectionButtonController {
                 updateInfoPanel(false);
                 // 进入普通战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
                 this.disableDirectionsButton(1);
+                War war1 = new War(hero, "normal");
+
                 break;
+
             case 2:
                 updateInfoPanel(true);
                 // 进入终极战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
                 this.disableDirectionsButton(2);
+                War war2 = new War(hero, "magic");
                 break;
+
                 default:
                     updateInfoPanel(false);
         }

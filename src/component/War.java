@@ -10,17 +10,18 @@ public class War {
     private DragonFlyweightFactory factory = new DragonFlyweightFactory();
     private DragonFlyweight dragon = null;
 
-    public War() {
-        createDragon();
-    }
-
-    public War(Hero hero) {
-        this();
+    public War(Hero hero, String type) {
+        // 策略模式
         this.hero = hero;
+        if (type == "magic") {
+            this.createMagicDragon();
+        } else {
+            this.createNormalDragon();
+        }
     }
 
     // 创建不同等级的小怪龙
-    public void createDragon() {
+    public void createNormalDragon() {
         Integer num = (int) ( Math.random() * 100);
         String key = "1";
         if (num < 5) {
@@ -35,6 +36,9 @@ public class War {
         dragon = factory.getDragonFlyweight(key);
     }
 
-
+    // 创建大魔王龙
+    public void createMagicDragon() {
+        dragon = factory.getDragonFlyweight("magic");
+    }
 
 }

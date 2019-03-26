@@ -4,8 +4,7 @@ import ui.MapPanel;
 import user.Hero;
 
 import javax.swing.*;
-import javax.xml.ws.handler.HandlerResolver;
-import java.util.Random;
+
 
 public class DirectionButtonController {
     // 持有地图显示面板引用以更新地图
@@ -101,15 +100,15 @@ public class DirectionButtonController {
             case 1:
                 updateInfoPanel(false);
                 // 进入普通战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
-                War war = new War(hero);
-
-
+                War war1 = new War(hero, "normal");
                 break;
+
             case 2:
                 updateInfoPanel(true);
                 // 进入终极战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
-
+                War war2 = new War(hero, "magic");
                 break;
+
                 default:
                     updateInfoPanel(false);
         }

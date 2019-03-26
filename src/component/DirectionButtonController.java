@@ -1,8 +1,11 @@
 package component;
 
 import ui.MapPanel;
+import user.Hero;
 
 import javax.swing.*;
+import javax.xml.ws.handler.HandlerResolver;
+import java.util.Random;
 
 public class DirectionButtonController {
     // 持有地图显示面板引用以更新地图
@@ -13,6 +16,9 @@ public class DirectionButtonController {
     private JTextArea infoTextArea;
     // 风景生成器
     private Scenery scenery;
+
+    // 存放Hero的引用
+    private Hero hero = null;
 
     public DirectionButtonController(MapPanel mapPanel,
                                      WorldMap worldMap,
@@ -27,10 +33,18 @@ public class DirectionButtonController {
         activeController();
     }
 
+    public DirectionButtonController(MapPanel mapPanel,
+                                     WorldMap worldMap,
+                                     JTextArea infoTextArea,
+                                     Hero hero
+    ){
+        this(mapPanel, worldMap, infoTextArea);
+        this.hero = hero;
+    }
+
     private void activeController(){
         this.mapPanel.activeButtonPanel(this);
     }
-
 
     /**
      * 更新地图
@@ -40,7 +54,6 @@ public class DirectionButtonController {
         worldMap.move(direction);
         String newText = worldMap.getMapText();
         mapPanel.setMapText(newText);
-
     }
 
     /**
@@ -61,8 +74,20 @@ public class DirectionButtonController {
      */
     private Integer getNextState(){
         // 待实现下一状态生成算法
-
-        return 0;
+        Integer num = (int) ( Math.random() * 100);
+        // System.out.println("num"+ num);
+        Integer stateCode = 0;
+        if (num < 30) {
+            // 进入普通战斗模式
+            stateCode = 1;
+        } else if (num < 50) {
+            // 进入终极战斗模式
+            stateCode = 2;
+        } else {
+            // 未遇到恶龙
+            stateCode = 0;
+        }
+        return stateCode;
     }
 
     public void directionButtonPressed(char direction){
@@ -76,6 +101,8 @@ public class DirectionButtonController {
             case 1:
                 updateInfoPanel(false);
                 // 进入普通战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
+                War war = new War(hero);
+
 
                 break;
             case 2:

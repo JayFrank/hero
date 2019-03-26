@@ -20,7 +20,6 @@ public class Scenery {
         }else{
             // 如果玩家未到达守护者宫殿，随机返回风景内容
             Integer index = (int)(Math.random()*normalScenery.length);
-            System.out.println(index);
             return normalScenery[index];
         }
     }

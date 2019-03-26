@@ -52,28 +52,28 @@ public class DirectionButtonPanel {
     }
 
     public void initializeController(DirectionButtonController directionButtonController){
-        wbt.addActionListener(new ActionListener() {
+        this.wbt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 directionButtonController.directionButtonPressed('W');
             }
         });
 
-        abt.addActionListener(new ActionListener() {
+        this.abt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 directionButtonController.directionButtonPressed('A');
             }
         });
 
-        sbt.addActionListener(new ActionListener() {
+        this.sbt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 directionButtonController.directionButtonPressed('S');
             }
         });
 
-        dbt.addActionListener(new ActionListener() {
+        this.dbt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 directionButtonController.directionButtonPressed('D');
@@ -83,5 +83,19 @@ public class DirectionButtonPanel {
 
     public JPanel getMovePanel(){
         return this.movePanel;
+    }
+
+    public void diableItself(){
+        this.wbt.setEnabled(false);
+        this.abt.setEnabled(false);
+        this.sbt.setEnabled(false);
+        this.dbt.setEnabled(false);
+    }
+
+    public void enableItself(){
+        this.wbt.setEnabled(true);
+        this.abt.setEnabled(true);
+        this.sbt.setEnabled(true);
+        this.dbt.setEnabled(true);
     }
 }

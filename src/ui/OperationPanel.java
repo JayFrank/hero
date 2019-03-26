@@ -1,7 +1,11 @@
 package ui;
 
+import component.BattleButtonController;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * 管理操作按钮面板的UI
@@ -30,7 +34,7 @@ public class OperationPanel {
 
     public OperationPanel(){
         initializeUI();
-        initializeController();
+
     }
 
     /**
@@ -69,11 +73,97 @@ public class OperationPanel {
     /**
      * 初始化控制器元素，绑定响应函数
      */
-    private void initializeController(){
+    public void initializeController(BattleButtonController battleButtonController){
+        this.attack1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("冲撞攻击");
+            }
+        });
+
+        this.attack2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("侧身攻击");
+            }
+        });
+
+        this.attack3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("跳跃攻击");
+            }
+        });
+
+        this.detectBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("抵近侦察");
+            }
+        });
+
+        this.eatBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("使用智慧果");
+            }
+        });
+
+        this.synthesisBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("合成武器");
+            }
+        });
+
+        this.escapeBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("逃离战斗");
+            }
+        });
+
+        this.useRubyBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("红宝石技能");
+            }
+        });
+
+        this.useSapphireBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                battleButtonController.operationButtonPressed("蓝宝石技能");
+            }
+        });
 
     }
 
     public JPanel getBtPanel(){
         return this.btPanel;
+    }
+
+    public void enableButtons(){
+        this.attack1.setEnabled(true);
+        this.attack2.setEnabled(true);
+        this.attack3.setEnabled(true);
+        this.detectBT.setEnabled(true);
+        this.eatBT.setEnabled(true);
+        this.synthesisBT.setEnabled(true);
+        this.escapeBT.setEnabled(true);
+        this.useRubyBT.setEnabled(true);
+        this.useSapphireBT.setEnabled(true);
+    }
+
+    public void disableButtons(){
+        this.attack1.setEnabled(false);
+        this.attack2.setEnabled(false);
+        this.attack3.setEnabled(false);
+        this.detectBT.setEnabled(false);
+        this.eatBT.setEnabled(false);
+        this.synthesisBT.setEnabled(false);
+        this.escapeBT.setEnabled(false);
+        this.useRubyBT.setEnabled(false);
+        this.useSapphireBT.setEnabled(false);
     }
 }

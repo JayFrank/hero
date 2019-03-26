@@ -50,4 +50,14 @@ public class MapPanel {
     public void activeButtonPanel(DirectionButtonController directionButtonController){
         this.directionButtonPanel.initializeController(directionButtonController);
     }
+
+    public void enbaleButtons(){
+        this.directionButtonPanel.enableItself();
+    }
+
+    public void disableButtons(){
+        this.directionButtonPanel.diableItself();
+    }
+
+
 }

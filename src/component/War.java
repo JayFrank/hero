@@ -36,9 +36,7 @@ public class War {
         }
         dragon = factory.getDragonFlyweight(key);
     }
-
-
-
+    
     // 创建大魔王龙
     public void createMagicDragon() {
         dragon = factory.getDragonFlyweight("magic");

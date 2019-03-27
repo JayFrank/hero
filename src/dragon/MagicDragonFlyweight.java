@@ -17,6 +17,12 @@ public class MagicDragonFlyweight extends DragonFlyweight{
     }
 
     @Override
+    public Integer attack() {
+        Integer attack = (int)(Math.random() * 3);
+        return attack;
+    }
+
+    @Override
     public Integer attack(Integer heroAttack) {
         if(this.magicPrevented.equals(false))
             return this.normalAttack(heroAttack);

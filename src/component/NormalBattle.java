@@ -1,26 +1,16 @@
 package component;
 
+import dragon.DragonFlyweight;
 import user.Hero;
 
-public class NormalBattle implements Battle {
-    private Hero hero = null;
-    // private Dragon dragon;
-    private Integer heroA = 0;
-    private Integer dragonA = 0;
-
+public class NormalBattle extends Battle {
     public NormalBattle() {}
 
-    public NormalBattle(Hero hero) {
-        this.hero = hero;
-    }
-
-    @Override
-    public void attack(Integer heroA, Integer dragonA) {
+    public NormalBattle(Hero hero, DragonFlyweight dragon) {
+        this.setHero(hero);
+        this.setDragon(dragon);
+        Integer dragonAttack = dragon.attack();
 
     }
 
-    @Override
-    public void damage() {
-        // 对于某一方造成攻击，可以使用策略模式
-    }
 }

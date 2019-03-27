@@ -12,6 +12,12 @@ public class NormalDragonFlyweight extends DragonFlyweight{
     }
 
     @Override
+    public Integer attack() {
+        Integer attack = (int)(Math.random() * 3);
+        return attack;
+    }
+
+    @Override
     public Integer attack(Integer heroAttack) {
         //随机生成攻击方式
 

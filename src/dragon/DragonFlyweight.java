@@ -13,6 +13,8 @@ public abstract class DragonFlyweight {
      *  随机生成攻击方式
      * @return
      */
+
+    public abstract Integer attack();
     public abstract Integer attack(Integer heroAttack);
 
     /**

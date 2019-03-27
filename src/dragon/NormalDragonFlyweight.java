@@ -13,7 +13,7 @@ public class NormalDragonFlyweight extends DragonFlyweight{
 
     @Override
     public Integer attack() {
-        Integer attack = (int)(Math.random() * 3);
+        Integer attack = (int)(Math.random() * 3 + 1);
         return attack;
     }
 

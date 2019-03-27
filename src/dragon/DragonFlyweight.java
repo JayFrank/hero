@@ -35,7 +35,7 @@ public abstract class DragonFlyweight {
 
     protected Integer normalAttack(Integer heroAttack) {
         //随机生成攻击方式
-        Integer attack = (int)Math.random()*3;
+        Integer attack = (int)(Math.random()*3) + 1;
 
         return attack;
     }

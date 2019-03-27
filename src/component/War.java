@@ -63,12 +63,23 @@ public class War {
 
     // 抵近侦察
     public Integer detect() {
+        // 如果为0标识，无法侦查
         Integer res = 0;
-        res = this.battle.getDragonAttack();
+        if (this.hero.canDetectAttack() == true) {
+            res = this.battle.getDragonAttack();
+        }
         return res;
     }
 
+    // 英雄食用苹果
+    public boolean eatApple() {
+        return this.hero.eatApple();
+    }
 
+    // 英雄脱离战斗
+    public boolean escape() {
+        return this.hero.canEscape();
+    }
 
 
 }

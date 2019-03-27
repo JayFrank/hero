@@ -162,14 +162,13 @@ public class Hero {
     }
 
     // 英雄使用消耗智力值，进行侦测
-    public String detectAttack() {
-        String res = "智力值不足，无法侦测敌方攻击方式!";
+    public boolean canDetectAttack() {
+        boolean res = false;
         Integer mentalCost = 10;
         Integer mentalValue = this.getMentalValue();
         if (mentalValue - mentalCost >= 0) {
             // 智慧值足够，可以进行侦测
-            res = "";
-            // 这里需要和钟陈星商量
+            res = true;
         }
         return res;
     }
@@ -196,4 +195,17 @@ public class Hero {
         heroStr += "智力值: " + mentalValue + "    " + "经验值: " + experience + "    " + "等级: " + level;
         return heroStr;
     }
+
+    public boolean canEscape() {
+        boolean res = false;
+        Integer mentalCost = 15;
+        Integer mentalValue = this.getMentalValue();
+        if (mentalValue - mentalCost >= 0) {
+            // 智慧值足够，可以逃跑
+            res = true;
+        }
+        return res;
+    }
+
+
 }

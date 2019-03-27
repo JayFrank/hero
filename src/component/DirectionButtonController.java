@@ -81,15 +81,12 @@ public class DirectionButtonController {
         Integer num = (int) ( Math.random() * 100);
         // System.out.println("num"+ num);
         Integer stateCode = 0;
-        if (num < 30) {
+        if (num < 20) {
             // 进入普通战斗模式
             stateCode = 1;
-        } else if (num < 50) {
+        } else if (num < 30) {
             // 进入终极战斗模式
             stateCode = 2;
-        } else {
-            // 未遇到恶龙
-            stateCode = 0;
         }
         return stateCode;
     }

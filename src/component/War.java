@@ -19,6 +19,14 @@ public class War {
         this.battle = battle;
     }
 
+    public void createNormalBattle() {
+        this.battle = new NormalBattle(hero, dragon);
+    }
+
+    public void createFinalBattle() {
+        this.battle = new FinalBattle(hero, dragon);
+    }
+
     public War(Hero hero, String type) {
         // 策略模式
         this.hero = hero;
@@ -54,10 +62,13 @@ public class War {
     }
 
     // 抵近侦察
-    public Integer detect(Battle battle) {
+    public Integer detect() {
         Integer res = 0;
-
-        return 0;
+        res = this.battle.getDragonAttack();
+        return res;
     }
+
+
+
 
 }

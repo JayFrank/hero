@@ -11,5 +11,10 @@ public class FinalBattle extends Battle {
         this.setDragon(dragon);
     }
 
+    @Override
+    public Integer detectDragonAttack() {
+        return null;
+    }
+
 
 }

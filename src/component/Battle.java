@@ -50,7 +50,50 @@ public abstract class Battle {
         return dragonAttack;
     }
 
-    // 获取一场战斗中的双方攻击方式
-    public void attack(Integer heroA, Integer dragonA){}
+    public abstract Integer detectDragonAttack();
+
+    // 判定输赢情况
+    public String winBattle(Integer heroA, Integer dragonA) {
+        String heroWin = "hero";
+        String dragonWin = "dragon";
+        String res = "tie";
+        switch (heroA) {
+            case 1:
+                switch (dragonA) {
+                    case 1:
+                        break;
+                    case 2:
+                        res = dragonWin;
+                        break;
+                    case 3:
+                        res = heroWin;
+                        break;
+                }
+            case 2:
+                switch (dragonA) {
+                    case 1:
+                        res = heroWin;
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        res = dragonWin;
+                        break;
+                }
+            case 3:
+                switch (dragonA) {
+                    case 1:
+                        res = dragonWin;
+                        break;
+                    case 2:
+                        res = heroWin;
+                        break;
+                    case 3:
+                        break;
+                }
+        }
+        return res;
+    }
+
     public void damage(){}
 }

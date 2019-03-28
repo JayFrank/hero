@@ -1,7 +1,7 @@
 package equipment;
 
 public class Knife extends Weapon {
-    
+
     public Knife() {
         this.setName("砍刀");
         this.setLevel(1);

@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af0bc971-f281-42a4-a63c-3e8fa34286f5" name="Default Changelist" comment="基本完成了 抵近侦察相关内容">
-      <change afterPath="$PROJECT_DIR$/src/equipment/Knife.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/equipment/Sword.java" afterDir="false" />
+    <list default="true" id="af0bc971-f281-42a4-a63c-3e8fa34286f5" name="Default Changelist" comment="武器">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/component/Battle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/component/Battle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/component/FinalBattle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/component/FinalBattle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/component/NormalBattle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/component/NormalBattle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/component/War.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/component/War.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/dragon/DragonFlyweight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/dragon/DragonFlyweight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/dragon/MagicDragonFlyweight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/dragon/MagicDragonFlyweight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/dragon/NormalDragonFlyweight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/dragon/NormalDragonFlyweight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hero/user/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hero/user/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/War.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/War.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dragon/DragonFlyweight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dragon/DragonFlyweight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dragon/MagicDragonFlyweight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dragon/MagicDragonFlyweight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dragon/NormalDragonFlyweight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dragon/NormalDragonFlyweight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/equipment/WoodenStick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/equipment/WoodenStick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/equipment/Knife.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/equipment/Knife.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,8 +119,8 @@
       <file leaf-file-name="Knife.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/equipment/Knife.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -445,11 +430,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553653802152</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="武器">
+      <created>1553655714758</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1553655714758</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36167000" />
+    <option name="totallyTimeSpent" value="36258000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
@@ -464,12 +456,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32843137" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32843137" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -556,7 +548,8 @@
     <MESSAGE value="同意了钟的修改" />
     <MESSAGE value="修改了大量的战斗相关类" />
     <MESSAGE value="基本完成了 抵近侦察相关内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本完成了 抵近侦察相关内容" />
+    <MESSAGE value="武器" />
+    <option name="LAST_COMMIT_MESSAGE" value="武器" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ui/OperationPanel.java">
@@ -896,8 +889,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/equipment/Knife.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

@@ -33,10 +33,10 @@ public class InfoBoard {
      * @param infoText
      */
     public void setInfoText(String infoText){
-        if(infoQueue.size() == this.INFOSIZE){
-            infoQueue.poll();
+        if(this.infoQueue.size() == this.INFOSIZE){
+            this.infoQueue.poll();
         }
-        infoQueue.offer(infoText);
+        this.infoQueue.offer(infoText);
         changeInfoBoard();
     }
 

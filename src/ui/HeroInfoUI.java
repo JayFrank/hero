@@ -9,18 +9,20 @@ import java.awt.*;
  */
 public class HeroInfoUI {
     private JPanel heroInfoPanel;
+    private JTextArea heroInfoArea;
     public HeroInfoUI(String heroDescription){
-        initialize(heroDescription);
+        initialize();
+        changeHeroDescription(heroDescription);
     }
 
-    private void initialize(String heroDescription){
+    private void initialize(){
         this.heroInfoPanel = new JPanel();
         this.heroInfoPanel.setLayout(new BorderLayout());
 
         Border heroTitle = BorderFactory.createTitledBorder("英雄信息");
         this.heroInfoPanel.setBorder(heroTitle);
 
-        JTextArea heroInfoArea = new JTextArea(heroDescription);
+        this.heroInfoArea = new JTextArea("");
         heroInfoArea.setEditable(false);
 
         this.heroInfoPanel.add(heroInfoArea, BorderLayout.WEST);
@@ -29,7 +31,13 @@ public class HeroInfoUI {
         this.heroInfoPanel.setVisible(true);
     }
 
+    public void changeHeroDescription(String heroDescription){
+        this.heroInfoArea.setText(heroDescription);
+    }
+
     public JPanel getHeroInfoPanel(){
         return this.heroInfoPanel;
     }
+
+
 }

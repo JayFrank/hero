@@ -47,6 +47,11 @@ public class MapPanel {
         this.mapTextArea.revalidate();
     }
 
+    public void resetMap(){
+        this.worldMap.resetWorldMap();
+        this.setMapText(this.worldMap.getMapText());
+    }
+
     public void activeButtonPanel(DirectionButtonController directionButtonController){
         this.directionButtonPanel.initializeController(directionButtonController);
     }

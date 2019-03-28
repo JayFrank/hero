@@ -1,6 +1,8 @@
 package component;
 
+import ui.HeroInfoUI;
 import ui.InfoBoard;
+import ui.MapPanel;
 import ui.OperationPanel;
 import user.Hero;
 
@@ -11,16 +13,21 @@ public class WarButtonController {
     private OperationPanel operationPanel;
     // 方向按钮控制器
     private DirectionButtonController directionButtonController;
+    // 英雄信息面板
+    private HeroInfoUI heroInfoUI;
+    // 英雄信息面板
+    private MapPanel mapPanel;
 
     // 英雄的引用
     private Hero hero = null;
     // 战役引用
     private War war = null;
 
-    public WarButtonController(InfoBoard infoBoard, OperationPanel operationPanel){
+    public WarButtonController(InfoBoard infoBoard, OperationPanel operationPanel,HeroInfoUI heroInfoUI,MapPanel mapPanel){
         this.infoBoard = infoBoard;
         this.operationPanel = operationPanel;
-
+        this.heroInfoUI = heroInfoUI;
+        this.mapPanel = mapPanel;
     }
 
     /**
@@ -29,7 +36,11 @@ public class WarButtonController {
     public void operationButtonPressed(String pressedButton) {
         // 战斗类处理当前用户点击按钮并返回状态结果，指明当前战斗状态
         Integer outcome = this.war.warAction(pressedButton);
-        // 战斗状态为1战斗，切换模式
+        if(outcome ==1 || outcome == 2){
+            System.out.println("更改英雄信息");
+            heroInfoUI.changeHeroDescription(hero.getHeroDesc());
+        }
+        // 战斗状态为2战斗，切换模式
         // pressedButton若为“逃离战斗”,也切换模式
         if(outcome == 2 || pressedButton.equals("逃离战斗")){
             this.disableWar();
@@ -48,6 +59,8 @@ public class WarButtonController {
      * 退出战斗模式，先关闭战斗按钮，再激活方向按钮
      */
     private void disableWar(){
+        //更新地图
+        this.mapPanel.resetMap();
         // 关闭操作按钮
         this.operationPanel.disableButtons();
         // 激活方向按钮控制器

@@ -58,6 +58,8 @@ public class DirectionButtonController {
         mapPanel.setMapText(newText);
     }
 
+
+
     /**
      * 更新信息面板
      * @param reachCastle 是否到达守护者宫殿

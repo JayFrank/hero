@@ -182,6 +182,7 @@ public class War {
 
             // 这里Battle胜利方
             Integer damage = 0;
+            this.battle.setDragonAttackValue(dragon.getAttackValue());
             if(res == "hero") {
                 damage = this.battle.getHeroAttackValue();
                 dragon.beAttacked(damage);
@@ -204,7 +205,7 @@ public class War {
                 // 敌方死亡，战斗结束
                 resCode = 2;
                 Trophy trophy = dragon.createTrophy();
-                // hero.pickUp(trophy);
+                hero.pickUp(trophy);
                 hero.rebirth();
                 outStr += "Hero杀死了恶龙！安息吧！" + "\n";
             } else if (hero.getHealth() <= 0) {

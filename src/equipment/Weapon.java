@@ -8,7 +8,7 @@ public abstract class Weapon {
     private Integer level;
 
     // 武器攻击加成
-    private Integer attackBouns;
+    private Integer attackBouns = 0;
 
     // 是否可以合成
     private boolean canSynthesize;

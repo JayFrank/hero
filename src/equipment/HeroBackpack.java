@@ -45,6 +45,16 @@ public class HeroBackpack {
         }
     }
 
+    public void addMoreApple(Integer num) {
+        Integer max = 5;
+        if(this.getAppleNumber() < max) {
+            this.appleNumber += num;
+            if (this.appleNumber > max) {
+                this.appleNumber = max;
+            }
+        }
+    }
+
     // 获取背包格式化描述
     public String getbackpackDesc() {
         String backpackStr = "红宝石: ";

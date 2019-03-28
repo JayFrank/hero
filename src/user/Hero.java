@@ -2,6 +2,7 @@ package user;
 
 import component.WorldMap;
 import equipment.HeroBackpack;
+import equipment.Trophy;
 import equipment.Weapon;
 
 public class Hero {
@@ -220,6 +221,33 @@ public class Hero {
     public void rebirth() {
         this.health = this.healthLimit;
         this.mentalValue = this.mentalValueLimit;
+    }
+
+    public boolean pickUp(Trophy trophy) {
+        boolean res = false;
+        String name = trophy.getName();
+        switch (name) {
+            case "红宝石":
+                if(!backpack.isHasRuby()) {
+                    backpack.setHasRuby(true);
+                    res = true;
+                }
+                break;
+            case "蓝宝石":
+                if(!backpack.isHasSapphire()) {
+                    backpack.setHasSapphire(true);
+                    res = true;
+                }
+                break;
+            case "钥匙":
+                res = backpack.getNewKey();
+                break;
+            case "智慧苹果":
+                backpack.addMoreApple(trophy.getNum());
+                res = true;
+                break;
+        }
+        return res;
     }
 
 

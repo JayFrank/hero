@@ -1,5 +1,7 @@
 package dragon;
 
+import equipment.Trophy;
+
 public abstract class DragonFlyweight {
     private Integer lifeValue; //生命值
     private Integer attackValue; //武力值
@@ -47,4 +49,10 @@ public abstract class DragonFlyweight {
 
         return attack;
     }
+
+    // 恐龙死亡之后生成战利品
+    public Trophy createTrophy() {
+        return new Trophy();
+    }
+
 }

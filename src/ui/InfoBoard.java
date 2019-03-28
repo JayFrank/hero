@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class InfoBoard {
     private JTextArea infoTextArea;
     private Queue<String> infoQueue = new LinkedBlockingQueue<String>();
-    private static final Integer INFOSIZE = 10;
+    private static final Integer INFOSIZE = 3;
 
     public InfoBoard(){
         initialize();

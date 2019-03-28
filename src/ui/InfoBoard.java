@@ -2,12 +2,16 @@ package ui;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * 展示系统信息面板
  */
 public class InfoBoard {
     private JTextArea infoTextArea;
+    private Queue<String> infoQueue = new LinkedBlockingQueue<String>();
+    private static final Integer INFOSIZE = 10;
 
     public InfoBoard(){
         initialize();
@@ -29,7 +33,22 @@ public class InfoBoard {
      * @param infoText
      */
     public void setInfoText(String infoText){
-        this.infoTextArea.setText(infoText);
+        if(infoQueue.size() == this.INFOSIZE){
+            infoQueue.poll();
+        }
+        infoQueue.offer(infoText);
+        changeInfoBoard();
+    }
+
+    /**
+     * 更新信息面板
+     */
+    private void changeInfoBoard(){
+        String cache = "";
+        for(String info:infoQueue){
+            cache += info +"\n";
+        }
+        this.infoTextArea.setText(cache);
         this.infoTextArea.validate();
     }
 

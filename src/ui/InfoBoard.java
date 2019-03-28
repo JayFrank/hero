@@ -23,4 +23,14 @@ public class InfoBoard {
     public JTextArea getInfoTextArea(){
         return this.infoTextArea;
     }
+
+    /**
+     * 提供給外部，直接更新信息面板内容
+     * @param infoText
+     */
+    public void setInfoText(String infoText){
+        this.infoTextArea.setText(infoText);
+        this.infoTextArea.validate();
+    }
+
 }

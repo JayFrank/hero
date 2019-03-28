@@ -64,8 +64,7 @@ public class DirectionButtonController {
      */
     private void updateInfoPanel(boolean reachCastle){
         String sceneryDescription = scenery.getScenery(reachCastle);
-        infoBoard.getInfoTextArea().setText(sceneryDescription);
-        infoBoard.getInfoTextArea().revalidate();
+        infoBoard.setInfoText(sceneryDescription);
     }
 
     /**

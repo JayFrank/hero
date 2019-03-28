@@ -4,8 +4,6 @@ import ui.InfoBoard;
 import ui.MapPanel;
 import user.Hero;
 
-import javax.swing.*;
-
 
 public class DirectionButtonController {
     // 持有地图显示面板引用以更新地图
@@ -17,7 +15,7 @@ public class DirectionButtonController {
     // 风景生成器
     private Scenery scenery;
     // 战斗按钮控制器
-    private BattleButtonController battleButtonController;
+    private WarButtonController warButtonController;
 
     // 存放Hero的引用
     private Hero hero = null;
@@ -41,7 +39,7 @@ public class DirectionButtonController {
                                      WorldMap worldMap,
                                      InfoBoard infoBoard,
                                      Hero hero
-    ){
+    ) {
         this(mapPanel, worldMap, infoBoard);
         this.hero = hero;
     }
@@ -103,15 +101,12 @@ public class DirectionButtonController {
                 updateInfoPanel(false);
                 // 进入普通战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
                 this.disableDirectionsButton(1);
-                War war1 = new War(hero, "normal");
-
                 break;
 
             case 2:
                 updateInfoPanel(true);
                 // 进入终极战斗模式 --- 开始监听战斗模式的操作按钮，同时屏蔽对方向控制按钮的监听
                 this.disableDirectionsButton(2);
-                War war2 = new War(hero, "magic");
                 break;
 
                 default:
@@ -134,13 +129,13 @@ public class DirectionButtonController {
      */
     private void disableDirectionsButton(Integer mood){
         this.mapPanel.disableButtons();
-        if(this.battleButtonController != null){
-            this.battleButtonController.enableWar(mood);
+        if(this.warButtonController != null){
+            this.warButtonController.enableWar(mood, this.hero);
         }
     }
 
-    public void setBattleButtonController(BattleButtonController battleButtonController){
-        this.battleButtonController = battleButtonController;
+    public void setWarButtonController(WarButtonController warButtonController){
+        this.warButtonController = warButtonController;
         //设定另一按钮控制器后，绑定方向按钮响应事件
         this.activeController();
     }

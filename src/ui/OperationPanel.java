@@ -1,6 +1,6 @@
 package ui;
 
-import component.BattleButtonController;
+import component.WarButtonController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,67 +73,67 @@ public class OperationPanel {
     /**
      * 初始化控制器元素，绑定响应函数
      */
-    public void initializeController(BattleButtonController battleButtonController){
+    public void initializeController(WarButtonController warButtonController){
         this.attack1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("冲撞攻击");
+                warButtonController.operationButtonPressed("冲撞攻击");
             }
         });
 
         this.attack2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("侧身攻击");
+                warButtonController.operationButtonPressed("侧身攻击");
             }
         });
 
         this.attack3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("跳跃攻击");
+                warButtonController.operationButtonPressed("跳跃攻击");
             }
         });
 
         this.detectBT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("抵近侦察");
+                warButtonController.operationButtonPressed("抵近侦察");
             }
         });
 
         this.eatBT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("使用智慧果");
+                warButtonController.operationButtonPressed("使用智慧果");
             }
         });
 
         this.synthesisBT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("合成武器");
+                warButtonController.operationButtonPressed("合成武器");
             }
         });
 
         this.escapeBT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("逃离战斗");
+                warButtonController.operationButtonPressed("逃离战斗");
             }
         });
 
         this.useRubyBT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("红宝石技能");
+                warButtonController.operationButtonPressed("红宝石技能");
             }
         });
 
         this.useSapphireBT.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                battleButtonController.operationButtonPressed("蓝宝石技能");
+                warButtonController.operationButtonPressed("蓝宝石技能");
             }
         });
 

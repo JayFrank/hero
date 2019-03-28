@@ -19,9 +19,11 @@ public class Hero {
     private Integer attack = 10;
 
     // 生命值
+    private Integer healthLimit = 200;
     private Integer health = 200;
 
     // 智力值
+    private Integer mentalValueLimit = 50;
     private Integer mentalValue = 50;
 
     // 经验值
@@ -205,6 +207,19 @@ public class Hero {
             res = true;
         }
         return res;
+    }
+
+    /**
+     * 被攻击后生命值下降
+     * @param penalty
+     */
+    public void beAttacked(Integer penalty){
+        this.health -= penalty;
+    }
+
+    public void rebirth() {
+        this.health = this.healthLimit;
+        this.mentalValue = this.mentalValueLimit;
     }
 
 

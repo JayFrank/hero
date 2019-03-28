@@ -1,6 +1,6 @@
 package ui;
 
-import component.BattleButtonController;
+import component.WarButtonController;
 import component.DirectionButtonController;
 import component.WorldMap;
 import user.Hero;
@@ -25,7 +25,7 @@ public class HeroUI {
 
     // --- 控制器 ---
     private DirectionButtonController directionButtonController;
-    private BattleButtonController battleButtonController;
+    private WarButtonController warButtonController;
 
     public HeroUI() {
         // 初始化组成元素
@@ -39,9 +39,9 @@ public class HeroUI {
 
         // 初始化控制器元素
         this.directionButtonController = new DirectionButtonController(this.mapPanel,worldMap,this.infoBoard);
-        this.battleButtonController = new BattleButtonController(this.infoBoard,this.operationPanel);
-        this.directionButtonController.setBattleButtonController(this.battleButtonController);
-        this.battleButtonController.setDirectionButtonController(this.directionButtonController);
+        this.warButtonController = new WarButtonController(this.infoBoard,this.operationPanel);
+        this.directionButtonController.setWarButtonController(this.warButtonController);
+        this.warButtonController.setDirectionButtonController(this.directionButtonController);
         initializeUI();
 
     }

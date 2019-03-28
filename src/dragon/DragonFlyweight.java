@@ -9,6 +9,14 @@ public abstract class DragonFlyweight {
         this.attackValue = attackValue;
     }
 
+    public Integer getLifeValue() {
+        return lifeValue;
+    }
+
+    public Integer getAttackValue() {
+        return attackValue;
+    }
+
     /**
      *  随机生成攻击方式
      * @return

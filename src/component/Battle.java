@@ -11,11 +11,42 @@ public abstract class Battle {
     private Integer heroAttack = 0;
     private Integer dragonAttack = 0;
 
+    // 本次Battle攻击的伤害值
+    private Integer heroAttackValue = 0;
+    private Integer dragonAttackValue = 0;
+
+    private Integer attackChoice = 0;
+
+    public Integer getAttackChoice() {
+        return attackChoice;
+    }
+
+    public void setAttackChoice(Integer attackChoice) {
+        this.attackChoice = attackChoice;
+    }
+
+    public Integer getHeroAttackValue() {
+        return heroAttackValue;
+    }
+
+    public void setHeroAttackValue(Integer heroAttackValue) {
+        this.heroAttackValue = heroAttackValue;
+    }
+
+    public Integer getDragonAttackValue() {
+        return dragonAttackValue;
+    }
+
+    public void setDragonAttackValue(Integer dragonAttackValue) {
+        this.dragonAttackValue = dragonAttackValue;
+    }
+
     public Battle() {}
 
     public Battle(Hero hero, DragonFlyweight dragon) {
         this.hero = hero;
         this.dragon = dragon;
+        this.setDragonAttack(dragon.attack());
     }
 
     public Hero getHero() {
@@ -53,13 +84,13 @@ public abstract class Battle {
     public abstract Integer detectDragonAttack();
 
     // 判定输赢情况
-    public String winBattle(Integer heroA, Integer dragonA) {
+    public String winBattle() {
         String heroWin = "hero";
         String dragonWin = "dragon";
         String res = "tie";
-        switch (heroA) {
+        switch (this.heroAttack) {
             case 1:
-                switch (dragonA) {
+                switch (this.dragonAttack) {
                     case 1:
                         break;
                     case 2:
@@ -70,7 +101,7 @@ public abstract class Battle {
                         break;
                 }
             case 2:
-                switch (dragonA) {
+                switch (this.dragonAttack) {
                     case 1:
                         res = heroWin;
                         break;
@@ -81,7 +112,7 @@ public abstract class Battle {
                         break;
                 }
             case 3:
-                switch (dragonA) {
+                switch (this.dragonAttack) {
                     case 1:
                         res = dragonWin;
                         break;

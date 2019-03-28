@@ -2,6 +2,7 @@ package component;
 
 import dragon.DragonFlyweight;
 import dragon.DragonFlyweightFactory;
+import equipment.Trophy;
 import user.Hero;
 
 // 一场战斗，可能包含多个回合
@@ -77,12 +78,16 @@ public class War {
         switch (command) {
             case "红宝石技能":
                 this.createNewBattle();
-                this.battle.setAttackChoice(1);
+                if(hero.getBackpack().isHasRuby()) {
+                    this.battle.setAttackChoice(1);
+                }
                 resCode = 0;
                 break;
             case "蓝宝石技能":
                 this.createNewBattle();
-                this.battle.setAttackChoice(2);
+                if(hero.getBackpack().isHasSapphire()) {
+                    this.battle.setAttackChoice(2);
+                }
                 resCode = 0;
                 break;
             case "抵近侦察":
@@ -166,6 +171,8 @@ public class War {
             if((dragon.getLifeValue() <= 0) && (hero.getHealth() > 0)) {
                 // 敌方死亡，战斗结束
                 resCode = 2;
+                Trophy trophy = dragon.createTrophy();
+                hero.pickUp(trophy);
                 hero.rebirth();
             } else if (hero.getHealth() <= 0) {
                 // 英雄死亡，战斗结束

@@ -27,14 +27,11 @@ public class WarButtonController {
      * 将被点击的按钮信息直接传给战斗类，由其处理
      */
     public void operationButtonPressed(String pressedButton) {
-
-        System.out.println("0000");
         // 战斗类处理当前用户点击按钮并返回状态结果，指明当前战斗状态
-
-        // 战斗状态为1表示退出战斗，切换模式
-
+        Integer outcome = this.war.warAction(pressedButton);
+        // 战斗状态为1战斗，切换模式
         // pressedButton若为“逃离战斗”,也切换模式
-        if(pressedButton.equals("逃离战斗")){
+        if(outcome == 2 || pressedButton.equals("逃离战斗")){
             this.disableWar();
         }
 
@@ -65,9 +62,9 @@ public class WarButtonController {
         this.hero = hero;
         // 根据mood激活终极战斗类,1为普通战斗,2为终极战斗
         if (mood == 1) {
-           this.war = new War(hero, "normal");
+           this.war = new War(hero, "normal", infoBoard);
         } else if (mood == 2) {
-            this.war = new War(hero, "magic");
+            this.war = new War(hero, "magic", infoBoard);
         }
     }
 

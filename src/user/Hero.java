@@ -17,7 +17,7 @@ public class Hero {
     private boolean isTutor = false;
 
     // 攻击力
-    private Integer attack = 10;
+    private Integer attack = 50;
 
     // 生命值
     private Integer healthLimit = 200;

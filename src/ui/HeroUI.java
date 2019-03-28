@@ -38,7 +38,7 @@ public class HeroUI {
         this.infoBoard = new InfoBoard();
 
         // 初始化控制器元素
-        this.directionButtonController = new DirectionButtonController(this.mapPanel,worldMap,this.infoBoard);
+        this.directionButtonController = new DirectionButtonController(this.mapPanel,worldMap,this.infoBoard, hero);
         this.warButtonController = new WarButtonController(this.infoBoard,this.operationPanel);
         this.directionButtonController.setWarButtonController(this.warButtonController);
         this.warButtonController.setDirectionButtonController(this.directionButtonController);
